@@ -1,16 +1,24 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+// import { Routes, Route } from 'react-router-dom';
+
+import AppBar from './AppBar';
+
+import authOperations from 'redux/auth/authOperations';
+import UserRoutes from './UserRoutes';
+
+
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <AppBar />
+       <UserRoutes/>
+    </>
+     
   );
 };
