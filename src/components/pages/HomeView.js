@@ -6,7 +6,7 @@ import { HomeTitle, HomeTotal } from './PagesStyled';
 const HomeView = () => (
     <HomeTotal>
         <HomeTitle>
-      This is best place for private secure storage your phonebook
+      This is best place for secure storage your phonebook
     </HomeTitle>
     <img src={ Title} width='400' alt='cat'/>
   </HomeTotal>
