@@ -1,5 +1,5 @@
-import { InputField } from './PhonebookStyled';
-import {setFilter} from '../redux/filterSlice'
+import { InputField } from '../../styled/CommonStyled';
+import {setFilter} from '../../redux/filterSlice'
 import { useDispatch } from 'react-redux';
 
 export default function PhonebookFilter() {

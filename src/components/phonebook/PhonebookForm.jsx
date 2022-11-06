@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { addContact } from "redux/operations";
 import { nanoid } from "nanoid";
-import { FormTotal, InputField, InputButton } from './PhonebookStyled'
+import { FormTotal } from './PhonebookStyled'
 import { getAllContacts } from "redux/selectors";
 import Toastify from 'toastify-js';
-import '../css/toastify.css';
+import '../../styled/toastify.css';
+import { InputButton, InputField } from "styled/CommonStyled";
 
 
 export default function PhonebookForm() {

@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { Routes, Route } from 'react-router-dom';
 
-import AppBar from './AppBar';
-
+import AppBar from './auth/AppBar';
+import { Container } from './phonebook/PhonebookStyled';
 import authOperations from 'redux/auth/authOperations';
 import UserRoutes from './UserRoutes';
 
@@ -15,10 +15,10 @@ export const App = () => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
   return (
-    <>
+    <Container>
       <AppBar />
        <UserRoutes/>
-    </>
+    </Container>
      
   );
 };

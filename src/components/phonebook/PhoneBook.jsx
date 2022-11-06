@@ -4,7 +4,7 @@ import PhonebookFilter from "./PhonebookFilter";
 import { Block } from './PhonebookStyled'
 import { useSelector } from "react-redux";
 import { getState } from 'redux/selectors';
-import { Message } from './PhonebookStyled';
+import { Message } from '../../styled/CommonStyled';
 
 export default function Phonebook() {
  

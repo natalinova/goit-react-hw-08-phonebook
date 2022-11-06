@@ -1,12 +1,12 @@
 // import { useDispatch } from 'react-redux';
 // import { deleteContacts } from 'redux/contactsSlice';
-import { ListItem, Button, Row } from './PhonebookStyled'
+import { ListItem, Row } from './PhonebookStyled'
 import {  removeContact } from 'redux/operations';
 import { fetchContacts } from "redux/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { getFilteredPeople, getFilter, getAllContacts } from 'redux/selectors';
 import { useEffect } from "react";
-import { Message } from './PhonebookStyled';
+import { Message, Button } from '../../styled/CommonStyled';
 
 export default function PhonebookList() {
 

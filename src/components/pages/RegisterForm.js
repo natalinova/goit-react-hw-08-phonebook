@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import  authOperations  from '../../redux/auth/authOperations';
+import authOperations  from '../../redux/auth/authOperations';
 
 const styles = {
   form: {
@@ -13,13 +13,16 @@ const styles = {
   },
 };
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const dispatch = useDispatch();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
+      case 'name':
+        return setName(value);
       case 'email':
         return setEmail(value);
       case 'password':
@@ -31,18 +34,24 @@ export default function LoginForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(authOperations.logIn({ email, password }));
+    dispatch(authOperations.register({ name, email, password }));
+    setName('');
     setEmail('');
     setPassword('');
   };
 
   return (
     <div>
-      <h1>Страница логина</h1>
+      <h1>Registration's page</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
-          Почта
+         Name 
+          <input type="text" name="name" value={name} onChange={handleChange} />
+        </label>
+
+        <label style={styles.label}>
+          Mail
           <input
             type="email"
             name="email"
@@ -52,7 +61,7 @@ export default function LoginForm() {
         </label>
 
         <label style={styles.label}>
-          Пароль
+          password
           <input
             type="password"
             name="password"
@@ -61,7 +70,7 @@ export default function LoginForm() {
           />
         </label>
 
-        <button type="submit">Войти</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
