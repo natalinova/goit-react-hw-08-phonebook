@@ -1,6 +1,7 @@
 import * as api from "../api/fetchContacts";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+
 export const fetchContacts = createAsyncThunk(
     "contacts/fetch",
     async(_, thunkApi) => {

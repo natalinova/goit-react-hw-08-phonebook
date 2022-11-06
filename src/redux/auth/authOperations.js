@@ -12,7 +12,7 @@ const token = {
   },
 };
 
-const register = createAsyncThunk('auth/register', async registerData => {
+const register = createAsyncThunk('auth/register', async (registerData, {rejectWithValue} )=> {
     try {
       console.log(registerData)
       const { data } = await axios.post('/users/signup', registerData);
@@ -21,28 +21,28 @@ const register = createAsyncThunk('auth/register', async registerData => {
       console.log(token)
     return data;
   } catch (error) {
-    // oбробка error
+    return rejectWithValue(error)
   }
 });
 
 
-const logIn = createAsyncThunk('auth/login', async loginData => {
+const logIn = createAsyncThunk('auth/login', async (loginData, {rejectWithValue}) => {
   try {
     const { data } = await axios.post('/users/login', loginData);
     token.set(data.token);
     return data;
   } catch (error) {
-    // oбробка error
+   return rejectWithValue(error.message);
   }
 });
 
 
-const logOut = createAsyncThunk('auth/logout', async () => {
+const logOut = createAsyncThunk('auth/logout', async (_, {rejectWithValue}) => {
   try {
     await axios.post('/users/logout');
     token.unset();
   } catch (error) {
-    // oбробка error
+    return rejectWithValue(error);
   }
 });
 
@@ -53,7 +53,7 @@ const fetchCurrentUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      console.log('токена нема - можна розслабитись');
+      console.log('токена нема - нема що оновлювати');
       return thunkAPI.rejectWithValue();
     }
 
@@ -62,7 +62,7 @@ const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
-       // oбробка error
+      return error;
     }
   },
 );

@@ -15,7 +15,6 @@ width: 600px;
 margin: 50px auto;
 height:80px;
 background-color: #efbe61;
-
 `
 export const Block = styled.div`
 color:  #4a6500;
@@ -23,16 +22,18 @@ border-radius: 20px;
 text-align: center;
 background-color: #efbe61;
 width: 100%;
-margin: 50px auto;
+margin: 100px auto;
 `
 export const ListItem = styled.li`
+margin-left: auto;
+margin-right: auto;
 display: flex;
 padding-bottom:10px;
 justify-content: space-between;
-width: 90%;
+width: 80%;
 `
 export const Row = styled.span`
-width:200px;
+width:33%;
 text-align: start;
 `
 

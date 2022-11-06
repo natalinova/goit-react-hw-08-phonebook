@@ -7,6 +7,7 @@ import { UserMenuText } from './AuthStyled';
 
 
 
+
 export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUsername);
@@ -15,7 +16,8 @@ export default function UserMenu() {
   return (
     <div >
       <UserMenuText >Welcome, {name}</UserMenuText>
-      <Button type="button" onClick={() => dispatch(authOperations.logOut())}>
+      <Button type="button" onClick={() => (dispatch(authOperations.logOut())
+      )}>
         Log out
       </Button>
     </div>

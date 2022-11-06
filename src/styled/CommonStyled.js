@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
+height: 30px;
 margin-left: 20px;
 width: 80px;
 border-radius: 5px;
@@ -30,4 +31,15 @@ text-align:center;
 export const InputField = styled.input`
 background-color:#ffd56f;
 border-radius: 5px;
+`
+export const PageTotal = styled.div`
+margin-top: 80px;
+text-align: center;
+`
+export const FormTotal = styled.form`
+color: #4a6500;
+width: 600px;
+margin: 50px auto;
+height:80px;
+background-color: #efbe61;
 `

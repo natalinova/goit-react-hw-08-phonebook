@@ -1,15 +1,16 @@
 import React from 'react';
 import Title from '../../img/cat_title.jpeg'
-import { HomeTitle, HomeTotal } from './PagesStyled';
+import { HomeTitle } from './PagesStyled';
+import { PageTotal } from 'styled/CommonStyled';
 
 
 const HomeView = () => (
-    <HomeTotal>
+    <PageTotal>
         <HomeTitle>
       This is best place for secure storage your phonebook
     </HomeTitle>
     <img src={ Title} width='400' alt='cat'/>
-  </HomeTotal>
+  </PageTotal>
 );
 
 export default HomeView;

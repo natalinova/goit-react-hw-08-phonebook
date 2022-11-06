@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations  from '../../redux/auth/authOperations';
+import { Button, InputField, PageTotal, FormTotal } from '../../styled/CommonStyled'
 
 const styles = {
   form: {
@@ -18,6 +19,7 @@ export default function RegisterForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -41,18 +43,19 @@ export default function RegisterForm() {
   };
 
   return (
-    <div>
+    <>
+       <PageTotal>
       <h1>Registration's page</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <FormTotal onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
          Name 
-          <input type="text" name="name" value={name} onChange={handleChange} />
+          <InputField type="text" name="name" value={name} onChange={handleChange} />
         </label>
 
         <label style={styles.label}>
           Mail
-          <input
+          <InputField
             type="email"
             name="email"
             value={email}
@@ -62,7 +65,7 @@ export default function RegisterForm() {
 
         <label style={styles.label}>
           password
-          <input
+          <InputField
             type="password"
             name="password"
             value={password}
@@ -70,8 +73,10 @@ export default function RegisterForm() {
           />
         </label>
 
-        <button type="submit">Register</button>
-      </form>
-    </div>
+        <Button type="submit">Register</Button>
+      </FormTotal>
+      </PageTotal>
+    </>
+   
   );
 }
