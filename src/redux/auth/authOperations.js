@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import Toastify from 'toastify-js';
+import '../../styled/toastify.css';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -20,7 +22,13 @@ const register = createAsyncThunk('auth/register', async (registerData, {rejectW
       token.set(data.token);
       console.log(token)
     return data;
-  } catch (error) {
+    } catch (error) {
+      Toastify({
+                text: `There are ${error.message} error - this user is already registered`,
+                gravity: "bottom",
+                position: 'center',
+                stopOnFocus: true,
+            }).showToast();
     return rejectWithValue(error)
   }
 });
@@ -32,6 +40,12 @@ const logIn = createAsyncThunk('auth/login', async (loginData, {rejectWithValue}
     token.set(data.token);
     return data;
   } catch (error) {
+    Toastify({
+                text: `There are ${error.message} error`,
+                gravity: "bottom",
+                position: 'center',
+                stopOnFocus: true,
+            }).showToast();
    return rejectWithValue(error.message);
   }
 });
