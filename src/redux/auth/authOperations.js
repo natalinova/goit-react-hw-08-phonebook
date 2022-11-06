@@ -24,7 +24,7 @@ const register = createAsyncThunk('auth/register', async (registerData, {rejectW
     return data;
     } catch (error) {
       Toastify({
-                text: `There are ${error.message} error - this user is already registered`,
+                text: ` ${error.message} error - this user is already registered`,
                 gravity: "bottom",
                 position: 'center',
                 stopOnFocus: true,
@@ -41,7 +41,7 @@ const logIn = createAsyncThunk('auth/login', async (loginData, {rejectWithValue}
     return data;
   } catch (error) {
     Toastify({
-                text: `There are ${error.message} error`,
+                text: `${error.message} error`,
                 gravity: "bottom",
                 position: 'center',
                 stopOnFocus: true,
