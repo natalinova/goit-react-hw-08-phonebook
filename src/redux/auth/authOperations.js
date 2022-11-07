@@ -41,7 +41,7 @@ const logIn = createAsyncThunk('auth/login', async (loginData, {rejectWithValue}
     return data;
   } catch (error) {
     Toastify({
-                text: `${error.message} error`,
+                text: `${error.message} error - this user isn't registered`,
                 gravity: "bottom",
                 position: 'center',
                 stopOnFocus: true,
@@ -67,7 +67,6 @@ const fetchCurrentUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      console.log('токена нема - нема що оновлювати');
       return thunkAPI.rejectWithValue();
     }
 
