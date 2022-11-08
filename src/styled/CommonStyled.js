@@ -41,5 +41,7 @@ color: #4a6500;
 width: 600px;
 margin: 50px auto;
 height:80px;
+display: flex;
+flex-direction: column;
 background-color: #efbe61;
 `
