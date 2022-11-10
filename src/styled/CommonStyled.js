@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
 height: 30px;
-margin-left: 20px;
+margin-left: auto;
+margin-right: auto;
 width: 80px;
 border-radius: 5px;
 background-color: #4a6500;
@@ -29,6 +30,7 @@ text-align:center;
   white-space: nowrap;
 `
 export const InputField = styled.input`
+margin-right: 30px;
 background-color:#ffd56f;
 border-radius: 5px;
 `
@@ -38,10 +40,15 @@ text-align: center;
 `
 export const FormTotal = styled.form`
 color: #4a6500;
-width: 600px;
+max-width: 600px;
 margin: 50px auto;
-height:80px;
 display: flex;
 flex-direction: column;
+
 background-color: #efbe61;
+`
+export const Label = styled.label`
+margin-bottom: 20px;
+display: flex;
+flex-direction: column;
 `

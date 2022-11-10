@@ -1,18 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations  from '../../redux/auth/authOperations';
-import { Button, InputField, PageTotal, FormTotal } from '../../styled/CommonStyled'
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import { Button, InputField, PageTotal, FormTotal, Label } from '../../styled/CommonStyled'
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
@@ -47,13 +36,13 @@ export default function RegisterForm() {
        <PageTotal>
       <h1>Registration's page</h1>
 
-      <FormTotal onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
+      <FormTotal onSubmit={handleSubmit} autoComplete="off">
+        <Label >
          Name 
           <InputField type="text" name="name" value={name} onChange={handleChange} />
-        </label>
+        </Label>
 
-        <label style={styles.label}>
+        <Label >
           Mail
           <InputField
             type="email"
@@ -61,17 +50,17 @@ export default function RegisterForm() {
             value={email}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <label style={styles.label}>
-          password
+        <Label >
+          Password
           <InputField
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
         <Button type="submit">Register</Button>
       </FormTotal>

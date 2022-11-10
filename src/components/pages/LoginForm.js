@@ -1,18 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/authOperations';
-import {Button, InputField, PageTotal, FormTotal} from '../../styled/CommonStyled'
+import {Button, InputField, PageTotal, FormTotal, Label} from '../../styled/CommonStyled'
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -41,8 +31,8 @@ export default function LoginForm() {
      <PageTotal >
       <h1>Login's page</h1>
 
-      <FormTotal onSubmit={handleSubmit} style={styles.form}  autoComplete="off">
-        <label style={styles.label}>
+      <FormTotal onSubmit={handleSubmit}  autoComplete="off">
+        <Label>
           Email
           <InputField
             type="email"
@@ -50,9 +40,9 @@ export default function LoginForm() {
             value={email}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <label style={styles.label}>
+        <Label>
           Password
           <InputField
             type="password"
@@ -60,7 +50,7 @@ export default function LoginForm() {
             value={password}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
         <Button type="submit">Login</Button>
       </FormTotal>

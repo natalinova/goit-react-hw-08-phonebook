@@ -9,7 +9,7 @@ const HomeView = () => (
         <HomeTitle>
       This is best place for secure storage your phonebook
     </HomeTitle>
-    <img src={ Title} width='400' alt='cat'/>
+    <img src={ Title} maxWidth='400' alt='cat'/>
   </PageTotal>
 );
 
